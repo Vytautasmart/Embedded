@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Fri Nov 21 13:33:01 2025
+Analysis & Synthesis Status : Successful - Mon Nov 24 19:43:14 2025
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 Patches 1.02i SJ Standard Edition
 Revision Name : sinewave_generator
 Top-level Entity Name : sinewave_generator
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
 Total registers : 32
-Total pins : 13
+Total pins : 53
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 0

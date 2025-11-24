@@ -1,5 +1,5 @@
 Fitter report for pwm_generator
-Mon Nov 24 13:47:03 2025
+Mon Nov 24 18:14:33 2025
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 Patches 1.02i SJ Standard Edition
 
 
@@ -62,7 +62,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                                  ;
 +---------------------------------+---------------------------------------------------------------+
-; Fitter Status                   ; Successful - Mon Nov 24 13:47:03 2025                         ;
+; Fitter Status                   ; Successful - Mon Nov 24 18:14:33 2025                         ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 Patches 1.02i SJ Standard Edition ;
 ; Revision Name                   ; pwm_generator                                                 ;
 ; Top-level Entity Name           ; pwm_generator                                                 ;
@@ -147,15 +147,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 6           ;
+; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
-; Average used               ; 1.00        ;
+; Average used               ; 1.01        ;
 ; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
+;     Processor 2            ;   0.2%      ;
 ;     Processors 3-6         ;   0.1%      ;
 +----------------------------+-------------+
 
@@ -1797,7 +1797,7 @@ Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
 Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "rst" is assigned to location or region, but does not exist in design
-Info (11798): Fitter preparation operations ending: elapsed time is 00:00:10
+Info (11798): Fitter preparation operations ending: elapsed time is 00:00:08
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'pwm_generator.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332144): No user constrained base clocks found in the design
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
@@ -1824,10 +1824,10 @@ Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:03
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file G:/Embedded/pwm_generator_v2/output_files/pwm_generator.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 6831 megabytes
-    Info: Processing ended: Mon Nov 24 13:47:05 2025
-    Info: Elapsed time: 00:00:33
-    Info: Total CPU time (on all processors): 00:00:44
+    Info: Peak virtual memory: 6836 megabytes
+    Info: Processing ended: Mon Nov 24 18:14:35 2025
+    Info: Elapsed time: 00:00:30
+    Info: Total CPU time (on all processors): 00:00:36
 
 
 +----------------------------+

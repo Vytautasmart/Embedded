@@ -1,5 +1,5 @@
 Analysis & Synthesis report for pwm_generator
-Mon Nov 24 13:46:31 2025
+Mon Nov 24 18:14:04 2025
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 Patches 1.02i SJ Standard Edition
 
 
@@ -47,7 +47,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                                    ;
 +---------------------------------+---------------------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Nov 24 13:46:30 2025                         ;
+; Analysis & Synthesis Status     ; Successful - Mon Nov 24 18:14:04 2025                         ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 Patches 1.02i SJ Standard Edition ;
 ; Revision Name                   ; pwm_generator                                                 ;
 ; Top-level Entity Name           ; pwm_generator                                                 ;
@@ -159,7 +159,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 6           ;
+; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
@@ -167,8 +167,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processors 3-6         ;   0.0%      ;
+;     Processors 2-6         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -312,7 +311,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 Patches 1.02i SJ Standard Edition
-    Info: Processing started: Mon Nov 24 13:46:20 2025
+    Info: Processing started: Mon Nov 24 18:13:53 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pwm_generator -c pwm_generator
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -323,7 +322,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file ssegdec
     Info (12022): Found design unit 1: ssegDecoder-rtl File: G:/Embedded/pwm_generator_v2/ssegDecoder.vhd Line: 14
     Info (12023): Found entity 1: ssegDecoder File: G:/Embedded/pwm_generator_v2/ssegDecoder.vhd Line: 7
 Info (12127): Elaborating entity "pwm_generator" for the top level hierarchy
-Info (12128): Elaborating entity "ssegDecoder" for hierarchy "ssegDecoder:ssegHunds" File: G:/Embedded/pwm_generator_v2/pwm_generator.vhd Line: 40
+Info (12128): Elaborating entity "ssegDecoder" for hierarchy "ssegDecoder:ssegHunds" File: G:/Embedded/pwm_generator_v2/pwm_generator.vhd Line: 41
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "sseg0[0]" is stuck at GND File: G:/Embedded/pwm_generator_v2/pwm_generator.vhd Line: 11
     Warning (13410): Pin "sseg0[2]" is stuck at GND File: G:/Embedded/pwm_generator_v2/pwm_generator.vhd Line: 11
@@ -344,8 +343,8 @@ Info (21057): Implemented 54 device resources after synthesis - the final resour
     Info (21059): Implemented 32 output pins
     Info (21061): Implemented 17 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 13 warnings
-    Info: Peak virtual memory: 4874 megabytes
-    Info: Processing ended: Mon Nov 24 13:46:31 2025
+    Info: Peak virtual memory: 4880 megabytes
+    Info: Processing ended: Mon Nov 24 18:14:04 2025
     Info: Elapsed time: 00:00:11
     Info: Total CPU time (on all processors): 00:00:10
 

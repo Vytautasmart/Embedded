@@ -34,6 +34,7 @@ architecture Behavioral of pwm_generator is
   -- PWM counter and duty select declarations
   signal counter_pwm    : integer range 0 to period - 1 := 0;
   signal duty_count_sel : integer range 0 to period := DUTY_50; -- default 50%
+  signal pwm_bit : std_logic := '0';
 
 begin
 
@@ -92,7 +93,9 @@ ssegOnes  : ssegDecoder port map(binaryIn => dig0, ssegOut => sseg0);
   end process;
 
 
-  pwm_out <= "11111111" when counter_pwm < duty_count_sel else "00000000";
+  pwm_bit <= '1' when counter_pwm < duty_count_sel else '0';
+  
+  pwm_out <= (others => pwm_bit);
   
   
 

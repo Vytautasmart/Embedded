@@ -1,5 +1,5 @@
 Analysis & Synthesis report for sinewave_generator
-Fri Nov 21 13:33:01 2025
+Mon Nov 24 19:43:14 2025
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 Patches 1.02i SJ Standard Edition
 
 
@@ -15,9 +15,14 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 Patches 1.02i SJ Standard Edit
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
   9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+ 10. Port Connectivity Checks: "ssegDecoder:ssegOnes"
+ 11. Port Connectivity Checks: "ssegDecoder:ssegTens"
+ 12. Port Connectivity Checks: "ssegDecoder:ssegHunds"
+ 13. Port Connectivity Checks: "ssegDecoder:ssegTh"
+ 14. Port Connectivity Checks: "ssegDecoder:ssegTensTh"
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
@@ -44,14 +49,14 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                                    ;
 +---------------------------------+---------------------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Nov 21 13:33:01 2025                         ;
+; Analysis & Synthesis Status     ; Successful - Mon Nov 24 19:43:14 2025                         ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 Patches 1.02i SJ Standard Edition ;
 ; Revision Name                   ; sinewave_generator                                            ;
 ; Top-level Entity Name           ; sinewave_generator                                            ;
 ; Family                          ; Cyclone V                                                     ;
 ; Logic utilization (in ALMs)     ; N/A                                                           ;
 ; Total registers                 ; 32                                                            ;
-; Total pins                      ; 13                                                            ;
+; Total pins                      ; 53                                                            ;
 ; Total virtual pins              ; 0                                                             ;
 ; Total block memory bits         ; 0                                                             ;
 ; Total DSP Blocks                ; 0                                                             ;
@@ -174,6 +179,7 @@ https://fpgasoftware.intel.com/eula.
 ; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                         ; Library ;
 +----------------------------------+-----------------+-----------------+------------------------------------------------------+---------+
 ; sinewave_generator.vhd           ; yes             ; User VHDL File  ; G:/Embedded/wave_generator_v2/sinewave_generator.vhd ;         ;
+; ssegDecoder.vhd                  ; yes             ; User VHDL File  ; G:/Embedded/wave_generator_v2/ssegDecoder.vhd        ;         ;
 +----------------------------------+-----------------+-----------------+------------------------------------------------------+---------+
 
 
@@ -182,25 +188,25 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+---------------+
 ; Resource                                    ; Usage         ;
 +---------------------------------------------+---------------+
-; Estimate of Logic utilization (ALMs needed) ; 31            ;
+; Estimate of Logic utilization (ALMs needed) ; 32            ;
 ;                                             ;               ;
-; Combinational ALUT usage for logic          ; 50            ;
+; Combinational ALUT usage for logic          ; 52            ;
 ;     -- 7 input functions                    ; 0             ;
 ;     -- 6 input functions                    ; 11            ;
-;     -- 5 input functions                    ; 11            ;
+;     -- 5 input functions                    ; 12            ;
 ;     -- 4 input functions                    ; 3             ;
-;     -- <=3 input functions                  ; 25            ;
+;     -- <=3 input functions                  ; 26            ;
 ;                                             ;               ;
 ; Dedicated logic registers                   ; 32            ;
 ;                                             ;               ;
-; I/O pins                                    ; 13            ;
+; I/O pins                                    ; 53            ;
 ;                                             ;               ;
 ; Total DSP Blocks                            ; 0             ;
 ;                                             ;               ;
 ; Maximum fan-out node                        ; current_state ;
 ; Maximum fan-out                             ; 34            ;
-; Total fan-out                               ; 316           ;
-; Average fan-out                             ; 2.93          ;
+; Total fan-out                               ; 379           ;
+; Average fan-out                             ; 1.99          ;
 +---------------------------------------------+---------------+
 
 
@@ -209,7 +215,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+--------------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name        ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+--------------------+--------------+
-; |sinewave_generator        ; 50 (50)             ; 32 (32)                   ; 0                 ; 0          ; 13   ; 0            ; |sinewave_generator ; sinewave_generator ; work         ;
+; |sinewave_generator        ; 52 (52)             ; 32 (32)                   ; 0                 ; 0          ; 53   ; 0            ; |sinewave_generator ; sinewave_generator ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+--------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -229,14 +235,59 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
-; 3:1                ; 18 bits   ; 36 LEs        ; 0 LEs                ; 36 LEs                 ; Yes        ; |sinewave_generator|count[17]   ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |sinewave_generator|holdVal[17] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
+; 3:1                ; 18 bits   ; 36 LEs        ; 0 LEs                ; 36 LEs                 ; Yes        ; |sinewave_generator|count[17] ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |sinewave_generator|dig1[0]   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "ssegDecoder:ssegOnes" ;
++----------+-------+----------+--------------------+
+; Port     ; Type  ; Severity ; Details            ;
++----------+-------+----------+--------------------+
+; binaryin ; Input ; Info     ; Stuck at GND       ;
++----------+-------+----------+--------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "ssegDecoder:ssegTens" ;
++----------------+-------+----------+--------------+
+; Port           ; Type  ; Severity ; Details      ;
++----------------+-------+----------+--------------+
+; binaryin[3..1] ; Input ; Info     ; Stuck at GND ;
++----------------+-------+----------+--------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "ssegDecoder:ssegHunds" ;
++----------------+-------+----------+---------------+
+; Port           ; Type  ; Severity ; Details       ;
++----------------+-------+----------+---------------+
+; binaryin[3..1] ; Input ; Info     ; Stuck at GND  ;
++----------------+-------+----------+---------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "ssegDecoder:ssegTh"   ;
++----------------+-------+----------+--------------+
+; Port           ; Type  ; Severity ; Details      ;
++----------------+-------+----------+--------------+
+; binaryin[3..1] ; Input ; Info     ; Stuck at GND ;
++----------------+-------+----------+--------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "ssegDecoder:ssegTensTh" ;
++----------------+-------+----------+----------------+
+; Port           ; Type  ; Severity ; Details        ;
++----------------+-------+----------+----------------+
+; binaryin[3..1] ; Input ; Info     ; Stuck at GND   ;
++----------------+-------+----------+----------------+
 
 
 +-----------------------------------------------------+
@@ -249,20 +300,21 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;     ENA SCLR          ; 18                          ;
 ;     SLD               ; 1                           ;
 ;     plain             ; 3                           ;
-; arriav_lcell_comb     ; 50                          ;
+; arriav_lcell_comb     ; 55                          ;
 ;     arith             ; 18                          ;
 ;         1 data inputs ; 18                          ;
-;     normal            ; 32                          ;
-;         1 data inputs ; 2                           ;
-;         2 data inputs ; 1                           ;
+;     normal            ; 37                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 2                           ;
 ;         3 data inputs ; 4                           ;
 ;         4 data inputs ; 3                           ;
-;         5 data inputs ; 11                          ;
+;         5 data inputs ; 12                          ;
 ;         6 data inputs ; 11                          ;
-; boundary_port         ; 13                          ;
+; boundary_port         ; 53                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 2.07                        ;
+; Average LUT depth     ; 2.04                        ;
 +-----------------------+-----------------------------+
 
 
@@ -281,27 +333,56 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 Patches 1.02i SJ Standard Edition
-    Info: Processing started: Fri Nov 21 13:32:51 2025
+    Info: Processing started: Mon Nov 24 19:43:04 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off sinewave_generator -c sinewave_generator
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file sinewave_generator.vhd
-    Info (12022): Found design unit 1: sinewave_generator-Behavioral File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 13
+    Info (12022): Found design unit 1: sinewave_generator-Behavioral File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 18
     Info (12023): Found entity 1: sinewave_generator File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file ssegdecoder.vhd
+    Info (12022): Found design unit 1: ssegDecoder-rtl File: G:/Embedded/wave_generator_v2/ssegDecoder.vhd Line: 14
+    Info (12023): Found entity 1: ssegDecoder File: G:/Embedded/wave_generator_v2/ssegDecoder.vhd Line: 7
 Info (12127): Elaborating entity "sinewave_generator" for the top level hierarchy
+Info (12128): Elaborating entity "ssegDecoder" for hierarchy "ssegDecoder:ssegTensTh" File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 41
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "sseg0[0]" is stuck at GND File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg0[1]" is stuck at GND File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg0[2]" is stuck at GND File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg0[3]" is stuck at GND File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg0[4]" is stuck at GND File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg0[5]" is stuck at GND File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg0[6]" is stuck at VCC File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg0[7]" is stuck at VCC File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg1[1]" is stuck at GND File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg1[2]" is stuck at GND File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg1[6]" is stuck at VCC File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg1[7]" is stuck at VCC File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg2[1]" is stuck at GND File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg2[2]" is stuck at GND File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg2[6]" is stuck at VCC File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg2[7]" is stuck at VCC File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg3[1]" is stuck at GND File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg3[2]" is stuck at GND File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg3[6]" is stuck at VCC File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg3[7]" is stuck at VCC File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg4[1]" is stuck at GND File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg4[2]" is stuck at GND File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg4[6]" is stuck at VCC File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
+    Warning (13410): Pin "sseg4[7]" is stuck at VCC File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 10
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "sw[3]" File: G:/Embedded/wave_generator_v2/sinewave_generator.vhd Line: 9
-Info (21057): Implemented 63 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 105 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
-    Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 50 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 4877 megabytes
-    Info: Processing ended: Fri Nov 21 13:33:01 2025
+    Info (21059): Implemented 48 output pins
+    Info (21061): Implemented 52 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 28 warnings
+    Info: Peak virtual memory: 4874 megabytes
+    Info: Processing ended: Mon Nov 24 19:43:14 2025
     Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:10
+    Info: Total CPU time (on all processors): 00:00:09
 
 
