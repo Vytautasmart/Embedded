@@ -1,0 +1,57 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "wave_out_hex[0]",
+					"strict" : false
+				},
+				{
+					"name" : "wave_out_hex[1]",
+					"strict" : false
+				},
+				{
+					"name" : "wave_out_hex[2]",
+					"strict" : false
+				},
+				{
+					"name" : "wave_out_hex[3]",
+					"strict" : false
+				},
+				{
+					"name" : "wave_out_hex[4]",
+					"strict" : false
+				},
+				{
+					"name" : "wave_out_hex[5]",
+					"strict" : false
+				},
+				{
+					"name" : "wave_out_hex[6]",
+					"strict" : false
+				},
+				{
+					"name" : "wave_out_hex[7]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "sw[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sw[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sw[2]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

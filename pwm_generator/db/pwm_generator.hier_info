@@ -1,0 +1,20 @@
+|pwm_generator
+clk => counter[0].CLK
+clk => counter[1].CLK
+clk => counter[2].CLK
+clk => counter[3].CLK
+clk => counter[4].CLK
+clk => counter[5].CLK
+clk => counter[6].CLK
+clk => counter[7].CLK
+rst => counter[0].PRESET
+rst => counter[1].PRESET
+rst => counter[2].PRESET
+rst => counter[3].PRESET
+rst => counter[4].PRESET
+rst => counter[5].PRESET
+rst => counter[6].PRESET
+rst => counter[7].PRESET
+dac_data <= LessThan1.DB_MAX_OUTPUT_PORT_TYPE
+
+

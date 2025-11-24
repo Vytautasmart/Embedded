@@ -1,0 +1,61 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "pwm_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "pwm_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "pwm_out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "pwm_out[3]",
+					"strict" : false
+				},
+				{
+					"name" : "pwm_out[4]",
+					"strict" : false
+				},
+				{
+					"name" : "pwm_out[5]",
+					"strict" : false
+				},
+				{
+					"name" : "pwm_out[6]",
+					"strict" : false
+				},
+				{
+					"name" : "pwm_out[7]",
+					"strict" : false
+				},
+				{
+					"name" : "sw[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sw[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sw[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sw[1]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

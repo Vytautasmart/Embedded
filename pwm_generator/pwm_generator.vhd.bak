@@ -1,0 +1,32 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity pwm_generator is
+    Port (
+        clk, rst       : in  STD_LOGIC;
+        dac_data  : out STD_LOGIC  
+end pwm_generator;
+
+
+architecture Behavioral of pwm_generator is 
+
+signal counter: std_logic_vector(7 downto 0);
+
+begin
+	process(clk, rst)
+			begin
+				if rst = "1" then
+					counter <= (others => "0");
+				elsif rising_edge(clk) then
+					if counter < 99 then
+						counter <= counter + "1";
+					else
+						counter <= (others => "0");
+					end if;
+				end if;
+			end process;
+			
+			dac_data <= "1" when counter < 20 else "0";
+			
+end Behavioral;

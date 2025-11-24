@@ -1,0 +1,68 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all
+
+entity tallyCounter_stateMachine is port
+(
+button, reset, clk : in std_logic;
+sseg : out std_logic_vector(7 downto 0)
+);
+end tallyCounter_stateMachine;
+
+architecture behavioural of tallyCounter_mealy is
+
+-- Build an enumerated type for the state machine
+type state_type is (waitForButtonPush, waitForRelease, delayedReset);
+
+-- Register to hold the current state
+signal state : state_type :- waitForButtonPush;
+
+signal count : integer := 0;
+
+begin
+
+process (clk, button, reset)
+variable timer : integer range 0 to 150000000 := 0;
+begin
+if (rising_edge(clk) then
+
+-- Determine the next state synchronously, based on
+
+case state is
+when waitForsuttonpush->
+if button - '0' then
+state <m waitForRelease;
+count <= count + 1;
+if count >= 9 then
+count <= 0;
+end if:
+elsif reset <= '0' then
+state <= delayedReset;
+timer := 0;
+else
+state <= waitForButtonPush;
+end if;
+
+when waitForRelease=>
+if button = '0' then
+state <= waitForRelease;
+else
+state <= waitForButtonpush;
+end if;
+when delayedReset=>
+if (reset = '0' and timer < 150000000) then
+state <= delayedReset;
+timer :- timer + 1;
+elsif (timer >= 150000000) then
+state <= waitForButtonpush;
+count <= 0;
+timer := 0;
+else
+state <= waitForButtonpush;
+timer := 0;
+end if;
+
+end case;
+
+end if;
+end process;

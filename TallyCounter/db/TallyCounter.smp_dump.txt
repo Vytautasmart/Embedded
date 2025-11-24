@@ -1,0 +1,6 @@
+
+State Machine - |tallyCounter|state
+Name state.delayedReset state.waitForRelease state.waitForButtonPush 
+state.waitForButtonPush 0 0 0 
+state.waitForRelease 0 1 1 
+state.delayedReset 1 0 1 
