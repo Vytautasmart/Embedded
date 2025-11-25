@@ -22,13 +22,14 @@ architecture Behavioral of pwm_generator is
 	);
    end component;	
 
-  constant period : integer := 125;  -- 50 MHz / 400 kHz
+  constant period : integer := 50000;  -- 50 MHz / 400 kHz
 
   -- Precomputed duty counts
-  constant DUTY_100 : integer := 125;
-  constant DUTY_75  : integer := 94;
-  constant DUTY_50  : integer := 62;
-  constant DUTY_25  : integer := 31;
+  constant DUTY_100 : integer := 50000;
+  constant DUTY_75  : integer := 37500;
+  constant DUTY_50  : integer := 25000;
+  constant DUTY_25  : integer := 12500;
+  constant DUTY_00  : integer := 0;
   --count signal declaratotions
   signal dig0, dig1, dig2 : std_logic_vector(3 downto 0);
   -- PWM counter and duty select declarations
@@ -69,9 +70,9 @@ ssegOnes  : ssegDecoder port map(binaryIn => dig0, ssegOut => sseg0);
 			dig1 <= "0010";   -- 2
 			dig0 <= "0101";   -- 5
     else
-      duty_count_sel <= DUTY_50; -- fallback if no switch pressed
+      duty_count_sel <= DUTY_00; -- fallback if no switch pressed
 			dig2 <= "0000";
-			dig1 <= "0101";   -- 5
+			dig1 <= "0000";   -- 
 			dig0 <= "0000";   -- 0
     end if;
   end process;
@@ -93,10 +94,10 @@ ssegOnes  : ssegDecoder port map(binaryIn => dig0, ssegOut => sseg0);
   end process;
 
 
+
   pwm_bit <= '1' when counter_pwm < duty_count_sel else '0';
   
   pwm_out <= (others => pwm_bit);
   
   
-
 end Behavioral;

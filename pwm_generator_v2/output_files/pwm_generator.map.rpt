@@ -1,5 +1,5 @@
 Analysis & Synthesis report for pwm_generator
-Mon Nov 24 18:14:04 2025
+Tue Nov 25 13:40:50 2025
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 Patches 1.02i SJ Standard Edition
 
 
@@ -47,13 +47,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                                    ;
 +---------------------------------+---------------------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Nov 24 18:14:04 2025                         ;
+; Analysis & Synthesis Status     ; Successful - Tue Nov 25 13:40:49 2025                         ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 Patches 1.02i SJ Standard Edition ;
 ; Revision Name                   ; pwm_generator                                                 ;
 ; Top-level Entity Name           ; pwm_generator                                                 ;
 ; Family                          ; Cyclone V                                                     ;
 ; Logic utilization (in ALMs)     ; N/A                                                           ;
-; Total registers                 ; 7                                                             ;
+; Total registers                 ; 16                                                            ;
 ; Total pins                      ; 37                                                            ;
 ; Total virtual pins              ; 0                                                             ;
 ; Total block memory bits         ; 0                                                             ;
@@ -186,25 +186,25 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimate of Logic utilization (ALMs needed) ; 10          ;
+; Estimate of Logic utilization (ALMs needed) ; 23          ;
 ;                                             ;             ;
-; Combinational ALUT usage for logic          ; 17          ;
+; Combinational ALUT usage for logic          ; 39          ;
 ;     -- 7 input functions                    ; 0           ;
-;     -- 6 input functions                    ; 2           ;
-;     -- 5 input functions                    ; 1           ;
-;     -- 4 input functions                    ; 4           ;
-;     -- <=3 input functions                  ; 10          ;
+;     -- 6 input functions                    ; 7           ;
+;     -- 5 input functions                    ; 5           ;
+;     -- 4 input functions                    ; 7           ;
+;     -- <=3 input functions                  ; 20          ;
 ;                                             ;             ;
-; Dedicated logic registers                   ; 7           ;
+; Dedicated logic registers                   ; 16          ;
 ;                                             ;             ;
 ; I/O pins                                    ; 37          ;
 ;                                             ;             ;
 ; Total DSP Blocks                            ; 0           ;
 ;                                             ;             ;
-; Maximum fan-out node                        ; sw[3]~input ;
-; Maximum fan-out                             ; 11          ;
-; Total fan-out                               ; 132         ;
-; Average fan-out                             ; 1.35        ;
+; Maximum fan-out node                        ; LessThan0~2 ;
+; Maximum fan-out                             ; 16          ;
+; Total fan-out                               ; 242         ;
+; Average fan-out                             ; 1.88        ;
 +---------------------------------------------+-------------+
 
 
@@ -213,7 +213,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                 ; Entity Name   ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------+---------------+--------------+
-; |pwm_generator             ; 17 (14)             ; 7 (7)                     ; 0                 ; 0          ; 37   ; 0            ; |pwm_generator                      ; pwm_generator ; work         ;
+; |pwm_generator             ; 39 (36)             ; 16 (16)                   ; 0                 ; 0          ; 37   ; 0            ; |pwm_generator                      ; pwm_generator ; work         ;
 ;    |ssegDecoder:ssegTens|  ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |pwm_generator|ssegDecoder:ssegTens ; ssegDecoder   ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -224,8 +224,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 7     ;
-; Number of registers using Synchronous Clear  ; 7     ;
+; Total registers                              ; 16    ;
+; Number of registers using Synchronous Clear  ; 16    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -234,13 +234,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |pwm_generator|duty_count_sel[5] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |pwm_generator|duty_count_sel[14] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
 
 
 +--------------------------------------------------+
@@ -276,23 +276,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 7                           ;
-;     SCLR              ; 7                           ;
-; arriav_lcell_comb     ; 20                          ;
-;     arith             ; 7                           ;
-;         1 data inputs ; 7                           ;
-;     normal            ; 13                          ;
+; arriav_ff             ; 16                          ;
+;     SCLR              ; 16                          ;
+; arriav_lcell_comb     ; 43                          ;
+;     arith             ; 16                          ;
+;         1 data inputs ; 16                          ;
+;     normal            ; 27                          ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 1                           ;
+;         1 data inputs ; 2                           ;
 ;         2 data inputs ; 2                           ;
-;         3 data inputs ; 1                           ;
-;         4 data inputs ; 4                           ;
-;         5 data inputs ; 1                           ;
-;         6 data inputs ; 2                           ;
+;         3 data inputs ; 2                           ;
+;         4 data inputs ; 7                           ;
+;         5 data inputs ; 5                           ;
+;         6 data inputs ; 7                           ;
 ; boundary_port         ; 37                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 1.47                        ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 2.31                        ;
 +-----------------------+-----------------------------+
 
 
@@ -311,7 +311,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 Patches 1.02i SJ Standard Edition
-    Info: Processing started: Mon Nov 24 18:13:53 2025
+    Info: Processing started: Tue Nov 25 13:40:39 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pwm_generator -c pwm_generator
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -322,7 +322,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file ssegdec
     Info (12022): Found design unit 1: ssegDecoder-rtl File: G:/Embedded/pwm_generator_v2/ssegDecoder.vhd Line: 14
     Info (12023): Found entity 1: ssegDecoder File: G:/Embedded/pwm_generator_v2/ssegDecoder.vhd Line: 7
 Info (12127): Elaborating entity "pwm_generator" for the top level hierarchy
-Info (12128): Elaborating entity "ssegDecoder" for hierarchy "ssegDecoder:ssegHunds" File: G:/Embedded/pwm_generator_v2/pwm_generator.vhd Line: 41
+Info (12128): Elaborating entity "ssegDecoder" for hierarchy "ssegDecoder:ssegHunds" File: G:/Embedded/pwm_generator_v2/pwm_generator.vhd Line: 42
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "sseg0[0]" is stuck at GND File: G:/Embedded/pwm_generator_v2/pwm_generator.vhd Line: 11
     Warning (13410): Pin "sseg0[2]" is stuck at GND File: G:/Embedded/pwm_generator_v2/pwm_generator.vhd Line: 11
@@ -338,14 +338,14 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 54 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 76 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 32 output pins
-    Info (21061): Implemented 17 logic cells
+    Info (21061): Implemented 39 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 13 warnings
-    Info: Peak virtual memory: 4880 megabytes
-    Info: Processing ended: Mon Nov 24 18:14:04 2025
+    Info: Peak virtual memory: 4879 megabytes
+    Info: Processing ended: Tue Nov 25 13:40:50 2025
     Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:10
+    Info: Total CPU time (on all processors): 00:00:09
 
 

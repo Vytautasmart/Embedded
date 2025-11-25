@@ -6,11 +6,12 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Loading package NUMERIC_STD
 -- Compiling entity pwm_generator_tb
 -- Compiling architecture Behavioral of pwm_generator_tb
+** Error: G:/Embedded/pwm_modelsim/pwm_generator_tb.vhd(10): near "`": tool directives are not supported before VHDL 2008
 ** Error: G:/Embedded/pwm_modelsim/pwm_generator_tb.vhd(11): near "out": (vcom-1576) expecting STRING or IDENTIFIER or << or '('.
 ** Error (suppressible): G:/Embedded/pwm_modelsim/pwm_generator_tb.vhd(21): (vcom-1141) Identifier "pwm_generator" does not identify a component declaration.
 ** Note: G:/Embedded/pwm_modelsim/pwm_generator_tb.vhd(34): VHDL Compiler exiting
 
-} {9.0 10.0} {}} G:/Embedded/pwm_modelsim/pwm_generator.vhd {1 {vcom -work work -2002 -explicit -stats=none G:/Embedded/pwm_modelsim/pwm_generator.vhd
+} {9.0 11.0} {}} G:/Embedded/pwm_modelsim/pwm_generator.vhd {1 {vcom -work work -2002 -explicit -stats=none G:/Embedded/pwm_modelsim/pwm_generator.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO

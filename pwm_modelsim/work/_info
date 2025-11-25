@@ -53,11 +53,11 @@ R11
 R12
 R13
 Epwm_generator_tb
-w1763741178
+w1763741215
 R1
 R2
 R3
-!i122 9
+!i122 10
 R4
 8G:/Embedded/pwm_modelsim/pwm_generator_tb.vhd
 FG:/Embedded/pwm_modelsim/pwm_generator_tb.vhd
@@ -67,9 +67,9 @@ V[lIEoE]Ji68z>Yo`^m6BR3
 !s100 mMDmU`_f2ehfSlLHD9V>=0
 R7
 32
-!s110 1763741179
+!s110 1764077029
 !i10b 1
-!s108 1763741179.000000
+!s108 1764077028.000000
 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|G:/Embedded/pwm_modelsim/pwm_generator_tb.vhd|
 !s107 G:/Embedded/pwm_modelsim/pwm_generator_tb.vhd|
 !i113 1

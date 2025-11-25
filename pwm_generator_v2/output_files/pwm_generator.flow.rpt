@@ -1,5 +1,5 @@
 Flow report for pwm_generator
-Mon Nov 24 18:14:55 2025
+Tue Nov 25 13:41:39 2025
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 Patches 1.02i SJ Standard Edition
 
 
@@ -41,15 +41,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------------------+
 ; Flow Summary                                                                                    ;
 +---------------------------------+---------------------------------------------------------------+
-; Flow Status                     ; Successful - Mon Nov 24 18:14:45 2025                         ;
+; Flow Status                     ; Successful - Tue Nov 25 13:41:30 2025                         ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 Patches 1.02i SJ Standard Edition ;
 ; Revision Name                   ; pwm_generator                                                 ;
 ; Top-level Entity Name           ; pwm_generator                                                 ;
 ; Family                          ; Cyclone V                                                     ;
 ; Device                          ; 5CSEMA5F31C6                                                  ;
 ; Timing Models                   ; Final                                                         ;
-; Logic utilization (in ALMs)     ; 10 / 32,070 ( < 1 % )                                         ;
-; Total registers                 ; 10                                                            ;
+; Logic utilization (in ALMs)     ; 24 / 32,070 ( < 1 % )                                         ;
+; Total registers                 ; 21                                                            ;
 ; Total pins                      ; 37 / 457 ( 8 % )                                              ;
 ; Total virtual pins              ; 0                                                             ;
 ; Total block memory bits         ; 0 / 4,065,280 ( 0 % )                                         ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/24/2025 18:13:54 ;
+; Start date & time ; 11/25/2025 13:40:40 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; pwm_generator       ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 96830617515901.176400803412364         ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 96830617549218.176407804008704         ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
 ; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -92,10 +92,10 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:10     ; 1.0                     ; 4880 MB             ; 00:00:09                           ;
-; Fitter               ; 00:00:28     ; 1.0                     ; 6836 MB             ; 00:00:36                           ;
-; Assembler            ; 00:00:07     ; 1.0                     ; 4849 MB             ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:08     ; 1.0                     ; 5179 MB             ; 00:00:03                           ;
+; Analysis & Synthesis ; 00:00:10     ; 1.0                     ; 4879 MB             ; 00:00:09                           ;
+; Fitter               ; 00:00:28     ; 1.0                     ; 6835 MB             ; 00:00:36                           ;
+; Assembler            ; 00:00:07     ; 1.0                     ; 4855 MB             ; 00:00:04                           ;
+; Timing Analyzer      ; 00:00:08     ; 1.0                     ; 5181 MB             ; 00:00:03                           ;
 ; Total                ; 00:00:53     ; --                      ; --                  ; 00:00:52                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
@@ -105,10 +105,10 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; ME-N128-DD02     ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; ME-N128-DD02     ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; ME-N128-DD02     ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; ME-N128-DD02     ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; ME-N128-DF03     ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; ME-N128-DF03     ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; ME-N128-DF03     ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; ME-N128-DF03     ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 

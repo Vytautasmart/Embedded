@@ -1,5 +1,5 @@
 Fitter report for pwm_generator
-Mon Nov 24 18:14:33 2025
+Tue Nov 25 13:41:19 2025
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 Patches 1.02i SJ Standard Edition
 
 
@@ -62,15 +62,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                                  ;
 +---------------------------------+---------------------------------------------------------------+
-; Fitter Status                   ; Successful - Mon Nov 24 18:14:33 2025                         ;
+; Fitter Status                   ; Successful - Tue Nov 25 13:41:19 2025                         ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 Patches 1.02i SJ Standard Edition ;
 ; Revision Name                   ; pwm_generator                                                 ;
 ; Top-level Entity Name           ; pwm_generator                                                 ;
 ; Family                          ; Cyclone V                                                     ;
 ; Device                          ; 5CSEMA5F31C6                                                  ;
 ; Timing Models                   ; Final                                                         ;
-; Logic utilization (in ALMs)     ; 10 / 32,070 ( < 1 % )                                         ;
-; Total registers                 ; 10                                                            ;
+; Logic utilization (in ALMs)     ; 24 / 32,070 ( < 1 % )                                         ;
+; Total registers                 ; 21                                                            ;
 ; Total pins                      ; 37 / 457 ( 8 % )                                              ;
 ; Total virtual pins              ; 0                                                             ;
 ; Total block memory bits         ; 0 / 4,065,280 ( 0 % )                                         ;
@@ -156,20 +156,24 @@ https://fpgasoftware.intel.com/eula.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.2%      ;
-;     Processors 3-6         ;   0.1%      ;
+;     Processor 3            ;   0.2%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processors 5-6         ;   0.1%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter Netlist Optimizations                                                                                                                                                                                      ;
-+------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+--------------------------+------------------+-----------------------+
-; Node             ; Action     ; Operation                                         ; Reason                     ; Node Port ; Node Port Name ; Destination Node         ; Destination Port ; Destination Port Name ;
-+------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+--------------------------+------------------+-----------------------+
-; clk~inputCLKENA0 ; Created    ; Placement                                         ; Fitter Periphery Placement ;           ;                ;                          ;                  ;                       ;
-; counter_pwm[2]   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; counter_pwm[2]~DUPLICATE ;                  ;                       ;
-; counter_pwm[5]   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; counter_pwm[5]~DUPLICATE ;                  ;                       ;
-; counter_pwm[6]   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; counter_pwm[6]~DUPLICATE ;                  ;                       ;
-+------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+--------------------------+------------------+-----------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Netlist Optimizations                                                                                                                                                                                       ;
++------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+---------------------------+------------------+-----------------------+
+; Node             ; Action     ; Operation                                         ; Reason                     ; Node Port ; Node Port Name ; Destination Node          ; Destination Port ; Destination Port Name ;
++------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+---------------------------+------------------+-----------------------+
+; clk~inputCLKENA0 ; Created    ; Placement                                         ; Fitter Periphery Placement ;           ;                ;                           ;                  ;                       ;
+; counter_pwm[0]   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; counter_pwm[0]~DUPLICATE  ;                  ;                       ;
+; counter_pwm[2]   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; counter_pwm[2]~DUPLICATE  ;                  ;                       ;
+; counter_pwm[4]   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; counter_pwm[4]~DUPLICATE  ;                  ;                       ;
+; counter_pwm[9]   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; counter_pwm[9]~DUPLICATE  ;                  ;                       ;
+; counter_pwm[10]  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; counter_pwm[10]~DUPLICATE ;                  ;                       ;
++------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+---------------------------+------------------+-----------------------+
 
 
 +----------------------------------------------------------------------------------------+
@@ -187,8 +191,8 @@ https://fpgasoftware.intel.com/eula.
 ; Type                ; Total [A + B]      ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+--------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                    ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 100 ) ; 0.00 % ( 0 / 100 )         ; 0.00 % ( 0 / 100 )       ;
-;     -- Achieved     ; 0.00 % ( 0 / 100 ) ; 0.00 % ( 0 / 100 )         ; 0.00 % ( 0 / 100 )       ;
+;     -- Requested    ; 0.00 % ( 0 / 131 ) ; 0.00 % ( 0 / 131 )         ; 0.00 % ( 0 / 131 )       ;
+;     -- Achieved     ; 0.00 % ( 0 / 131 ) ; 0.00 % ( 0 / 131 )         ; 0.00 % ( 0 / 131 )       ;
 ;                     ;                    ;                            ;                          ;
 ; Routing (by net)    ;                    ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -211,7 +215,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 100 )    ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 131 )    ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 0 )      ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -227,11 +231,11 @@ The pin-out file can be found in G:/Embedded/pwm_generator_v2/output_files/pwm_g
 +-------------------------------------------------------------+--------------------+-------+
 ; Resource                                                    ; Usage              ; %     ;
 +-------------------------------------------------------------+--------------------+-------+
-; Logic utilization (ALMs needed / total ALMs on device)      ; 10 / 32,070        ; < 1 % ;
-; ALMs needed [=A-B+C]                                        ; 10                 ;       ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 11 / 32,070        ; < 1 % ;
-;         [a] ALMs used for LUT logic and registers           ; 4                  ;       ;
-;         [b] ALMs used for LUT logic                         ; 7                  ;       ;
+; Logic utilization (ALMs needed / total ALMs on device)      ; 24 / 32,070        ; < 1 % ;
+; ALMs needed [=A-B+C]                                        ; 24                 ;       ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 25 / 32,070        ; < 1 % ;
+;         [a] ALMs used for LUT logic and registers           ; 8                  ;       ;
+;         [b] ALMs used for LUT logic                         ; 17                 ;       ;
 ;         [c] ALMs used for registers                         ; 0                  ;       ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                  ;       ;
 ;     [B] Estimate of ALMs recoverable by dense packing       ; 1 / 32,070         ; < 1 % ;
@@ -243,25 +247,25 @@ The pin-out file can be found in G:/Embedded/pwm_generator_v2/output_files/pwm_g
 ;                                                             ;                    ;       ;
 ; Difficulty packing design                                   ; Low                ;       ;
 ;                                                             ;                    ;       ;
-; Total LABs:  partially or completely used                   ; 2 / 3,207          ; < 1 % ;
-;     -- Logic LABs                                           ; 2                  ;       ;
+; Total LABs:  partially or completely used                   ; 4 / 3,207          ; < 1 % ;
+;     -- Logic LABs                                           ; 4                  ;       ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                  ;       ;
 ;                                                             ;                    ;       ;
-; Combinational ALUT usage for logic                          ; 18                 ;       ;
+; Combinational ALUT usage for logic                          ; 40                 ;       ;
 ;     -- 7 input functions                                    ; 0                  ;       ;
-;     -- 6 input functions                                    ; 2                  ;       ;
-;     -- 5 input functions                                    ; 1                  ;       ;
-;     -- 4 input functions                                    ; 4                  ;       ;
-;     -- <=3 input functions                                  ; 11                 ;       ;
+;     -- 6 input functions                                    ; 7                  ;       ;
+;     -- 5 input functions                                    ; 5                  ;       ;
+;     -- 4 input functions                                    ; 7                  ;       ;
+;     -- <=3 input functions                                  ; 21                 ;       ;
 ; Combinational ALUT usage for route-throughs                 ; 0                  ;       ;
 ;                                                             ;                    ;       ;
-; Dedicated logic registers                                   ; 10                 ;       ;
+; Dedicated logic registers                                   ; 21                 ;       ;
 ;     -- By type:                                             ;                    ;       ;
-;         -- Primary logic registers                          ; 7 / 64,140         ; < 1 % ;
-;         -- Secondary logic registers                        ; 3 / 64,140         ; < 1 % ;
+;         -- Primary logic registers                          ; 16 / 64,140        ; < 1 % ;
+;         -- Secondary logic registers                        ; 5 / 64,140         ; < 1 % ;
 ;     -- By function:                                         ;                    ;       ;
-;         -- Design implementation registers                  ; 7                  ;       ;
-;         -- Routing optimization registers                   ; 3                  ;       ;
+;         -- Design implementation registers                  ; 16                 ;       ;
+;         -- Routing optimization registers                   ; 5                  ;       ;
 ;                                                             ;                    ;       ;
 ; Virtual pins                                                ; 0                  ;       ;
 ; I/O pins                                                    ; 37 / 457           ; 8 %   ;
@@ -317,11 +321,11 @@ The pin-out file can be found in G:/Embedded/pwm_generator_v2/output_files/pwm_g
 ; Impedance control blocks                                    ; 0 / 4              ; 0 %   ;
 ; Hard Memory Controllers                                     ; 0 / 2              ; 0 %   ;
 ; Average interconnect usage (total/H/V)                      ; 0.0% / 0.0% / 0.0% ;       ;
-; Peak interconnect usage (total/H/V)                         ; 0.3% / 0.2% / 0.4% ;       ;
-; Maximum fan-out                                             ; 11                 ;       ;
-; Highest non-global fan-out                                  ; 11                 ;       ;
-; Total fan-out                                               ; 142                ;       ;
-; Average fan-out                                             ; 1.38               ;       ;
+; Peak interconnect usage (total/H/V)                         ; 0.3% / 0.3% / 0.3% ;       ;
+; Maximum fan-out                                             ; 21                 ;       ;
+; Highest non-global fan-out                                  ; 21                 ;       ;
+; Total fan-out                                               ; 258                ;       ;
+; Average fan-out                                             ; 1.90               ;       ;
 +-------------------------------------------------------------+--------------------+-------+
 
 
@@ -330,11 +334,11 @@ The pin-out file can be found in G:/Embedded/pwm_generator_v2/output_files/pwm_g
 +-------------------------------------------------------------+----------------------+--------------------------------+
 ; Statistic                                                   ; Top                  ; hard_block:auto_generated_inst ;
 +-------------------------------------------------------------+----------------------+--------------------------------+
-; Logic utilization (ALMs needed / total ALMs on device)      ; 10 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
-; ALMs needed [=A-B+C]                                        ; 10                   ; 0                              ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 11 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
-;         [a] ALMs used for LUT logic and registers           ; 4                    ; 0                              ;
-;         [b] ALMs used for LUT logic                         ; 7                    ; 0                              ;
+; Logic utilization (ALMs needed / total ALMs on device)      ; 24 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
+; ALMs needed [=A-B+C]                                        ; 24                   ; 0                              ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 25 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
+;         [a] ALMs used for LUT logic and registers           ; 8                    ; 0                              ;
+;         [b] ALMs used for LUT logic                         ; 17                   ; 0                              ;
 ;         [c] ALMs used for registers                         ; 0                    ; 0                              ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                    ; 0                              ;
 ;     [B] Estimate of ALMs recoverable by dense packing       ; 1 / 32070 ( < 1 % )  ; 0 / 32070 ( 0 % )              ;
@@ -346,16 +350,16 @@ The pin-out file can be found in G:/Embedded/pwm_generator_v2/output_files/pwm_g
 ;                                                             ;                      ;                                ;
 ; Difficulty packing design                                   ; Low                  ; Low                            ;
 ;                                                             ;                      ;                                ;
-; Total LABs:  partially or completely used                   ; 2 / 3207 ( < 1 % )   ; 0 / 3207 ( 0 % )               ;
-;     -- Logic LABs                                           ; 2                    ; 0                              ;
+; Total LABs:  partially or completely used                   ; 4 / 3207 ( < 1 % )   ; 0 / 3207 ( 0 % )               ;
+;     -- Logic LABs                                           ; 4                    ; 0                              ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                    ; 0                              ;
 ;                                                             ;                      ;                                ;
-; Combinational ALUT usage for logic                          ; 18                   ; 0                              ;
+; Combinational ALUT usage for logic                          ; 40                   ; 0                              ;
 ;     -- 7 input functions                                    ; 0                    ; 0                              ;
-;     -- 6 input functions                                    ; 2                    ; 0                              ;
-;     -- 5 input functions                                    ; 1                    ; 0                              ;
-;     -- 4 input functions                                    ; 4                    ; 0                              ;
-;     -- <=3 input functions                                  ; 11                   ; 0                              ;
+;     -- 6 input functions                                    ; 7                    ; 0                              ;
+;     -- 5 input functions                                    ; 5                    ; 0                              ;
+;     -- 4 input functions                                    ; 7                    ; 0                              ;
+;     -- <=3 input functions                                  ; 21                   ; 0                              ;
 ; Combinational ALUT usage for route-throughs                 ; 0                    ; 0                              ;
 ; Memory ALUT usage                                           ; 0                    ; 0                              ;
 ;     -- 64-address deep                                      ; 0                    ; 0                              ;
@@ -363,11 +367,11 @@ The pin-out file can be found in G:/Embedded/pwm_generator_v2/output_files/pwm_g
 ;                                                             ;                      ;                                ;
 ; Dedicated logic registers                                   ; 0                    ; 0                              ;
 ;     -- By type:                                             ;                      ;                                ;
-;         -- Primary logic registers                          ; 7 / 64140 ( < 1 % )  ; 0 / 64140 ( 0 % )              ;
-;         -- Secondary logic registers                        ; 3 / 64140 ( < 1 % )  ; 0 / 64140 ( 0 % )              ;
+;         -- Primary logic registers                          ; 16 / 64140 ( < 1 % ) ; 0 / 64140 ( 0 % )              ;
+;         -- Secondary logic registers                        ; 5 / 64140 ( < 1 % )  ; 0 / 64140 ( 0 % )              ;
 ;     -- By function:                                         ;                      ;                                ;
-;         -- Design implementation registers                  ; 7                    ; 0                              ;
-;         -- Routing optimization registers                   ; 3                    ; 0                              ;
+;         -- Design implementation registers                  ; 16                   ; 0                              ;
+;         -- Routing optimization registers                   ; 5                    ; 0                              ;
 ;                                                             ;                      ;                                ;
 ;                                                             ;                      ;                                ;
 ; Virtual pins                                                ; 0                    ; 0                              ;
@@ -384,8 +388,8 @@ The pin-out file can be found in G:/Embedded/pwm_generator_v2/output_files/pwm_g
 ;     -- Registered Output Connections                        ; 0                    ; 0                              ;
 ;                                                             ;                      ;                                ;
 ; Internal Connections                                        ;                      ;                                ;
-;     -- Total Connections                                    ; 142                  ; 0                              ;
-;     -- Registered Connections                               ; 19                   ; 0                              ;
+;     -- Total Connections                                    ; 258                  ; 0                              ;
+;     -- Registered Connections                               ; 70                   ; 0                              ;
 ;                                                             ;                      ;                                ;
 ; External Connections                                        ;                      ;                                ;
 ;     -- Top                                                  ; 0                    ; 0                              ;
@@ -417,11 +421,11 @@ The pin-out file can be found in G:/Embedded/pwm_generator_v2/output_files/pwm_g
 +-------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
 ; Name  ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +-------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
-; clk   ; AF14  ; 3B       ; 32           ; 0            ; 0            ; 10                    ; 0                  ; yes    ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
-; sw[0] ; AB12  ; 3A       ; 12           ; 0            ; 17           ; 5                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
-; sw[1] ; AC12  ; 3A       ; 16           ; 0            ; 0            ; 5                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
-; sw[2] ; AF9   ; 3A       ; 8            ; 0            ; 34           ; 7                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
-; sw[3] ; AF10  ; 3A       ; 4            ; 0            ; 51           ; 11                    ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
+; clk   ; AF14  ; 3B       ; 32           ; 0            ; 0            ; 21                    ; 0                  ; yes    ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
+; sw[0] ; AB12  ; 3A       ; 12           ; 0            ; 17           ; 4                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
+; sw[1] ; AC12  ; 3A       ; 16           ; 0            ; 0            ; 8                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
+; sw[2] ; AF9   ; 3A       ; 8            ; 0            ; 34           ; 10                    ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
+; sw[3] ; AF10  ; 3A       ; 4            ; 0            ; 51           ; 13                    ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 +-------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
 
 
@@ -445,7 +449,7 @@ The pin-out file can be found in G:/Embedded/pwm_generator_v2/output_files/pwm_g
 ; sseg0[4]   ; AF28  ; 5A       ; 89           ; 13           ; 54           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; sseg0[5]   ; AG28  ; 5A       ; 89           ; 13           ; 37           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; sseg0[6]   ; AH28  ; 5A       ; 89           ; 4            ; 94           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
-; sseg0[7]   ; AG11  ; 3B       ; 18           ; 0            ; 57           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; sseg0[7]   ; H15   ; 8A       ; 40           ; 81           ; 0            ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
 ; sseg1[0]   ; AJ29  ; 5A       ; 89           ; 6            ; 37           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; sseg1[1]   ; AH29  ; 5A       ; 89           ; 6            ; 54           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; sseg1[2]   ; AH30  ; 5A       ; 89           ; 16           ; 37           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
@@ -453,7 +457,7 @@ The pin-out file can be found in G:/Embedded/pwm_generator_v2/output_files/pwm_g
 ; sseg1[4]   ; AF29  ; 5A       ; 89           ; 15           ; 37           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; sseg1[5]   ; AF30  ; 5A       ; 89           ; 15           ; 54           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; sseg1[6]   ; AD27  ; 5A       ; 89           ; 8            ; 54           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
-; sseg1[7]   ; AD26  ; 5A       ; 89           ; 16           ; 3            ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; sseg1[7]   ; AA20  ; 4A       ; 84           ; 0            ; 17           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
 ; sseg2[0]   ; AB23  ; 5A       ; 89           ; 9            ; 20           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; sseg2[1]   ; AE29  ; 5B       ; 89           ; 23           ; 37           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; sseg2[2]   ; AD29  ; 5B       ; 89           ; 23           ; 54           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
@@ -461,7 +465,7 @@ The pin-out file can be found in G:/Embedded/pwm_generator_v2/output_files/pwm_g
 ; sseg2[4]   ; AD30  ; 5B       ; 89           ; 25           ; 37           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; sseg2[5]   ; AC29  ; 5B       ; 89           ; 20           ; 94           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; sseg2[6]   ; AC30  ; 5B       ; 89           ; 25           ; 54           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
-; sseg2[7]   ; G15   ; 8A       ; 40           ; 81           ; 17           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; sseg2[7]   ; AH9   ; 3B       ; 18           ; 0            ; 91           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
 +------------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+---------------------+-----------------------------+----------------------+----------------------+---------------------+
 
 
@@ -474,8 +478,8 @@ The pin-out file can be found in G:/Embedded/pwm_generator_v2/output_files/pwm_g
 ; B1L      ; 0 / 0 ( -- )     ; --            ; --           ; --            ;
 ; 3A       ; 4 / 32 ( 13 % )  ; 2.5V          ; --           ; 2.5V          ;
 ; 3B       ; 2 / 48 ( 4 % )   ; 2.5V          ; --           ; 2.5V          ;
-; 4A       ; 8 / 80 ( 10 % )  ; 2.5V          ; --           ; 2.5V          ;
-; 5A       ; 16 / 32 ( 50 % ) ; 2.5V          ; --           ; 2.5V          ;
+; 4A       ; 9 / 80 ( 11 % )  ; 2.5V          ; --           ; 2.5V          ;
+; 5A       ; 15 / 32 ( 47 % ) ; 2.5V          ; --           ; 2.5V          ;
 ; 5B       ; 6 / 16 ( 38 % )  ; 2.5V          ; --           ; 2.5V          ;
 ; 6B       ; 0 / 44 ( 0 % )   ; 2.5V          ; --           ; 2.5V          ;
 ; 6A       ; 0 / 56 ( 0 % )   ; 2.5V          ; --           ; 2.5V          ;
@@ -539,7 +543,7 @@ The pin-out file can be found in G:/Embedded/pwm_generator_v2/output_files/pwm_g
 ; AA17     ;            ; 4A             ; VCCIO4A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; AA18     ; 168        ; 4A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AA19     ; 176        ; 4A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; AA20     ; 200        ; 4A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
+; AA20     ; 200        ; 4A             ; sseg1[7]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; AA21     ; 210        ; 4A             ; pwm_out[1]                      ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
 ; AA22     ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; AA23     ;            ; --             ; VCCPGM                          ; power  ;              ; 1.8V/2.5V/3.0V/3.3V ; --           ;                 ; --       ; --           ;
@@ -635,7 +639,7 @@ The pin-out file can be found in G:/Embedded/pwm_generator_v2/output_files/pwm_g
 ; AD23     ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; AD24     ; 211        ; 4A             ; pwm_out[4]                      ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
 ; AD25     ; 213        ; 5A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Row I/O      ;                 ; no       ; On           ;
-; AD26     ; 240        ; 5A             ; sseg1[7]                        ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
+; AD26     ; 240        ; 5A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Row I/O      ;                 ; no       ; On           ;
 ; AD27     ; 222        ; 5A             ; sseg1[6]                        ; output ; 2.5 V        ;                     ; Row I/O      ; Y               ; no       ; Off          ;
 ; AD28     ;            ; 5A             ; VCCIO5A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; AD29     ; 255        ; 5B             ; sseg2[2]                        ; output ; 2.5 V        ;                     ; Row I/O      ; Y               ; no       ; Off          ;
@@ -710,7 +714,7 @@ The pin-out file can be found in G:/Embedded/pwm_generator_v2/output_files/pwm_g
 ; AG8      ; 65         ; 3A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AG9      ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; AG10     ; 86         ; 3B             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; AG11     ; 85         ; 3B             ; sseg0[7]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; AG11     ; 85         ; 3B             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AG12     ; 103        ; 3B             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AG13     ; 101        ; 3B             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AG14     ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
@@ -738,7 +742,7 @@ The pin-out file can be found in G:/Embedded/pwm_generator_v2/output_files/pwm_g
 ; AH6      ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; AH7      ; 115        ; 3B             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AH8      ; 113        ; 3B             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; AH9      ; 84         ; 3B             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
+; AH9      ; 84         ; 3B             ; sseg2[7]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; AH10     ; 118        ; 3B             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; AH11     ;            ;                ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; AH12     ; 126        ; 3B             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
@@ -982,7 +986,7 @@ The pin-out file can be found in G:/Embedded/pwm_generator_v2/output_files/pwm_g
 ; G12      ; 518        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; G13      ; 484        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; G14      ;            ; 8A             ; VCCIO8A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
-; G15      ; 460        ; 8A             ; sseg2[7]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; G15      ; 460        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; G16      ; 444        ; 7D             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; G17      ; 436        ; 7C             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; G18      ; 432        ; 7C             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
@@ -1012,7 +1016,7 @@ The pin-out file can be found in G:/Embedded/pwm_generator_v2/output_files/pwm_g
 ; H12      ; 500        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; H13      ; 498        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; H14      ; 482        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; H15      ; 458        ; 8A             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
+; H15      ; 458        ; 8A             ; sseg0[7]                        ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; H16      ;            ; 7D             ; VCCIO7D_HPS                     ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; H17      ; 434        ; 7C             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; H18      ; 422        ; 7B             ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
@@ -1430,8 +1434,8 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ; sseg2[6]   ; Incomplete set of assignments ;
 ; sseg2[7]   ; Incomplete set of assignments ;
 ; sw[2]      ; Incomplete set of assignments ;
-; sw[3]      ; Incomplete set of assignments ;
 ; sw[0]      ; Incomplete set of assignments ;
+; sw[3]      ; Incomplete set of assignments ;
 ; sw[1]      ; Incomplete set of assignments ;
 ; clk        ; Incomplete set of assignments ;
 ; sseg0[7]   ; Missing location assignment   ;
@@ -1445,8 +1449,8 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +----------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+-------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node ; ALMs needed [=A-B+C] ; [A] ALMs used in final placement ; [B] Estimate of ALMs recoverable by dense packing ; [C] Estimate of ALMs unavailable ; ALMs used for memory ; Combinational ALUTs ; Dedicated Logic Registers ; I/O Registers ; Block Memory Bits ; M10Ks ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                 ; Entity Name   ; Library Name ;
 +----------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+-------------------------------------+---------------+--------------+
-; |pwm_generator             ; 10.0 (8.5)           ; 10.0 (8.5)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 18 (15)             ; 10 (10)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 37   ; 0            ; |pwm_generator                      ; pwm_generator ; work         ;
-;    |ssegDecoder:ssegTens|  ; 1.5 (1.5)            ; 1.5 (1.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 3 (3)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |pwm_generator|ssegDecoder:ssegTens ; ssegDecoder   ; work         ;
+; |pwm_generator             ; 23.5 (22.5)          ; 24.5 (23.5)                      ; 1.0 (1.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (37)             ; 21 (21)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 37   ; 0            ; |pwm_generator                      ; pwm_generator ; work         ;
+;    |ssegDecoder:ssegTens|  ; 1.0 (1.0)            ; 1.0 (1.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 3 (3)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |pwm_generator|ssegDecoder:ssegTens ; ssegDecoder   ; work         ;
 +----------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+-------------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1488,9 +1492,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; sseg2[5]   ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
 ; sseg2[6]   ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
 ; sseg2[7]   ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
-; sw[2]      ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; sw[2]      ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; sw[0]      ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; sw[3]      ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; sw[0]      ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; sw[1]      ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; clk        ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 +------------+----------+----+------+------+----+------+-------+--------+------------------------+--------------------------+
@@ -1502,37 +1506,44 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Source Pin / Fanout                ; Pad To Core Index ; Setting ;
 +------------------------------------+-------------------+---------+
 ; sw[2]                              ;                   ;         ;
-;      - duty_count_sel[5]~0         ; 0                 ; 0       ;
-;      - duty_count_sel[5]~1         ; 0                 ; 0       ;
-;      - LessThan1~0                 ; 0                 ; 0       ;
-;      - ssegDecoder:ssegTens|Mux5~0 ; 0                 ; 0       ;
-;      - ssegDecoder:ssegTens|Mux5~1 ; 0                 ; 0       ;
-;      - ssegDecoder:ssegTens|Mux5~2 ; 0                 ; 0       ;
-;      - dig1[0]~0                   ; 0                 ; 0       ;
+;      - LessThan1~1                 ; 1                 ; 0       ;
+;      - LessThan1~3                 ; 1                 ; 0       ;
+;      - duty_count_sel[13]~0        ; 1                 ; 0       ;
+;      - LessThan1~7                 ; 1                 ; 0       ;
+;      - duty_count_sel[12]~1        ; 1                 ; 0       ;
+;      - LessThan1~9                 ; 1                 ; 0       ;
+;      - ssegDecoder:ssegTens|Mux5~0 ; 1                 ; 0       ;
+;      - ssegDecoder:ssegTens|Mux5~1 ; 1                 ; 0       ;
+;      - ssegDecoder:ssegTens|Mux5~2 ; 1                 ; 0       ;
+;      - duty_count_sel[3]~2         ; 1                 ; 0       ;
+; sw[0]                              ;                   ;         ;
+;      - LessThan1~3                 ; 1                 ; 0       ;
+;      - duty_count_sel[13]~0        ; 1                 ; 0       ;
+;      - duty_count_sel[12]~1        ; 1                 ; 0       ;
+;      - ssegDecoder:ssegTens|Mux5~1 ; 1                 ; 0       ;
 ; sw[3]                              ;                   ;         ;
-;      - duty_count_sel[5]~0         ; 0                 ; 0       ;
-;      - duty_count_sel[5]~1         ; 0                 ; 0       ;
-;      - LessThan1~0                 ; 0                 ; 0       ;
+;      - LessThan1~6                 ; 0                 ; 0       ;
+;      - duty_count_sel[13]~0        ; 0                 ; 0       ;
+;      - LessThan1~7                 ; 0                 ; 0       ;
+;      - duty_count_sel[12]~1        ; 0                 ; 0       ;
+;      - LessThan1~9                 ; 0                 ; 0       ;
 ;      - ssegDecoder:ssegTens|Mux5~0 ; 0                 ; 0       ;
 ;      - ssegDecoder:ssegTens|Mux5~1 ; 0                 ; 0       ;
 ;      - ssegDecoder:ssegTens|Mux5~2 ; 0                 ; 0       ;
-;      - dig1[0]~0                   ; 0                 ; 0       ;
+;      - duty_count_sel[3]~2         ; 0                 ; 0       ;
 ;      - sseg2[0]~output             ; 0                 ; 0       ;
 ;      - sseg2[3]~output             ; 0                 ; 0       ;
 ;      - sseg2[4]~output             ; 0                 ; 0       ;
 ;      - sseg2[5]~output             ; 0                 ; 0       ;
-; sw[0]                              ;                   ;         ;
-;      - duty_count_sel[5]~1         ; 0                 ; 0       ;
-;      - LessThan1~0                 ; 0                 ; 0       ;
-;      - ssegDecoder:ssegTens|Mux5~0 ; 0                 ; 0       ;
-;      - ssegDecoder:ssegTens|Mux5~1 ; 0                 ; 0       ;
-;      - dig1[0]~0                   ; 0                 ; 0       ;
 ; sw[1]                              ;                   ;         ;
-;      - duty_count_sel[5]~1         ; 0                 ; 0       ;
-;      - LessThan1~0                 ; 0                 ; 0       ;
+;      - LessThan1~6                 ; 0                 ; 0       ;
+;      - duty_count_sel[13]~0        ; 0                 ; 0       ;
+;      - LessThan1~7                 ; 0                 ; 0       ;
+;      - duty_count_sel[12]~1        ; 0                 ; 0       ;
+;      - LessThan1~9                 ; 0                 ; 0       ;
 ;      - ssegDecoder:ssegTens|Mux5~0 ; 0                 ; 0       ;
 ;      - ssegDecoder:ssegTens|Mux5~1 ; 0                 ; 0       ;
-;      - dig1[0]~0                   ; 0                 ; 0       ;
+;      - duty_count_sel[3]~2         ; 0                 ; 0       ;
 ; clk                                ;                   ;         ;
 +------------------------------------+-------------------+---------+
 
@@ -1542,8 +1553,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------+--------------------+---------+-------------+--------+----------------------+------------------+---------------------------+
 ; Name        ; Location           ; Fan-Out ; Usage       ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +-------------+--------------------+---------+-------------+--------+----------------------+------------------+---------------------------+
-; LessThan0~1 ; LABCELL_X88_Y4_N42 ; 10      ; Sync. clear ; no     ; --                   ; --               ; --                        ;
-; clk         ; PIN_AF14           ; 10      ; Clock       ; yes    ; Global Clock         ; GCLK6            ; --                        ;
+; LessThan0~2 ; LABCELL_X88_Y8_N48 ; 21      ; Sync. clear ; no     ; --                   ; --               ; --                        ;
+; clk         ; PIN_AF14           ; 21      ; Clock       ; yes    ; Global Clock         ; GCLK6            ; --                        ;
 +-------------+--------------------+---------+-------------+--------+----------------------+------------------+---------------------------+
 
 
@@ -1552,7 +1563,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------+----------+---------+----------------------+------------------+---------------------------+
 ; Name ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +------+----------+---------+----------------------+------------------+---------------------------+
-; clk  ; PIN_AF14 ; 10      ; Global Clock         ; GCLK6            ; --                        ;
+; clk  ; PIN_AF14 ; 21      ; Global Clock         ; GCLK6            ; --                        ;
 +------+----------+---------+----------------------+------------------+---------------------------+
 
 
@@ -1561,14 +1572,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------------+------------------------+
 ; Routing Resource Type                       ; Usage                  ;
 +---------------------------------------------+------------------------+
-; Block interconnects                         ; 32 / 289,320 ( < 1 % ) ;
-; C12 interconnects                           ; 6 / 13,420 ( < 1 % )   ;
-; C2 interconnects                            ; 13 / 119,108 ( < 1 % ) ;
-; C4 interconnects                            ; 17 / 56,300 ( < 1 % )  ;
+; Block interconnects                         ; 58 / 289,320 ( < 1 % ) ;
+; C12 interconnects                           ; 7 / 13,420 ( < 1 % )   ;
+; C2 interconnects                            ; 6 / 119,108 ( < 1 % )  ;
+; C4 interconnects                            ; 19 / 56,300 ( < 1 % )  ;
 ; DQS bus muxes                               ; 0 / 25 ( 0 % )         ;
 ; DQS-18 I/O buses                            ; 0 / 25 ( 0 % )         ;
 ; DQS-9 I/O buses                             ; 0 / 25 ( 0 % )         ;
-; Direct links                                ; 4 / 289,320 ( < 1 % )  ;
+; Direct links                                ; 17 / 289,320 ( < 1 % ) ;
 ; Global clocks                               ; 1 / 16 ( 6 % )         ;
 ; HPS SDRAM PLL inputs                        ; 0 / 1 ( 0 % )          ;
 ; HPS SDRAM PLL outputs                       ; 0 / 1 ( 0 % )          ;
@@ -1624,12 +1635,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; HPS_INTERFACE_TPIU_TRACE_INPUTs             ; 0 / 2 ( 0 % )          ;
 ; HPS_INTERFACE_TPIU_TRACE_OUTPUTs            ; 0 / 33 ( 0 % )         ;
 ; Horizontal periphery clocks                 ; 0 / 72 ( 0 % )         ;
-; Local interconnects                         ; 9 / 84,580 ( < 1 % )   ;
+; Local interconnects                         ; 27 / 84,580 ( < 1 % )  ;
 ; Quadrant clocks                             ; 0 / 66 ( 0 % )         ;
-; R14 interconnects                           ; 26 / 12,676 ( < 1 % )  ;
-; R14/C12 interconnect drivers                ; 27 / 20,720 ( < 1 % )  ;
-; R3 interconnects                            ; 9 / 130,992 ( < 1 % )  ;
-; R6 interconnects                            ; 6 / 266,960 ( < 1 % )  ;
+; R14 interconnects                           ; 27 / 12,676 ( < 1 % )  ;
+; R14/C12 interconnect drivers                ; 29 / 20,720 ( < 1 % )  ;
+; R3 interconnects                            ; 16 / 130,992 ( < 1 % ) ;
+; R6 interconnects                            ; 11 / 266,960 ( < 1 % ) ;
 ; Spine clocks                                ; 1 / 360 ( < 1 % )      ;
 ; Wire stub REs                               ; 0 / 15,858 ( 0 % )     ;
 +---------------------------------------------+------------------------+
@@ -1727,8 +1738,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; sseg2[6]           ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; sseg2[7]           ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; sw[2]              ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
-; sw[3]              ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; sw[0]              ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
+; sw[3]              ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; sw[1]              ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; clk                ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 +--------------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
@@ -1790,14 +1801,14 @@ Warning (15714): Some pins have incomplete I/O assignments. Refer to the I/O Ass
 Critical Warning (169085): No exact pin location assignment(s) for 3 pins of 37 total pins. For the list of pins please refer to the I/O Assignment Warnings table in the fitter report.
 Info (184020): Starting Fitter periphery placement operations
 Info (11191): Automatically promoted 1 clock (1 global)
-    Info (11162): clk~inputCLKENA0 with 7 fanout uses global clock CLKCTRL_G6
+    Info (11162): clk~inputCLKENA0 with 16 fanout uses global clock CLKCTRL_G6
 Info (184021): Fitter periphery placement operations ending: elapsed time is 00:00:00
 Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
 Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "rst" is assigned to location or region, but does not exist in design
-Info (11798): Fitter preparation operations ending: elapsed time is 00:00:08
+Info (11798): Fitter preparation operations ending: elapsed time is 00:00:07
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'pwm_generator.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332144): No user constrained base clocks found in the design
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
@@ -1808,24 +1819,24 @@ Info (14951): The Fitter is using Advanced Physical Optimization.
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:02
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:01
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:03
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
     Info (170196): Router estimated peak interconnect usage is 0% of the available device resources in the region that extends from location X78_Y0 to location X89_Y10
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
-Info (11888): Total time spent on timing analysis during the Fitter is 0.19 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.21 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:03
+Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:02
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file G:/Embedded/pwm_generator_v2/output_files/pwm_generator.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 6836 megabytes
-    Info: Processing ended: Mon Nov 24 18:14:35 2025
+    Info: Peak virtual memory: 6835 megabytes
+    Info: Processing ended: Tue Nov 25 13:41:21 2025
     Info: Elapsed time: 00:00:30
     Info: Total CPU time (on all processors): 00:00:36
 
