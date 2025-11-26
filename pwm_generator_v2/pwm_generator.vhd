@@ -22,7 +22,7 @@ architecture Behavioral of pwm_generator is
 	);
    end component;	
 
-  constant period : integer := 50000;  -- 50 MHz / 400 kHz
+  constant period : integer := 50000;  -- 50 MHz / 1 kHz
 
   -- Precomputed duty counts
   constant DUTY_100 : integer := 50000;
@@ -34,7 +34,7 @@ architecture Behavioral of pwm_generator is
   signal dig0, dig1, dig2 : std_logic_vector(3 downto 0);
   -- PWM counter and duty select declarations
   signal counter_pwm    : integer range 0 to period - 1 := 0;
-  signal duty_count_sel : integer range 0 to period := DUTY_50; -- default 50%
+  signal duty_count_sel : integer range 0 to period := DUTY_00; -- default 00%
   signal pwm_bit : std_logic := '0';
 
 begin
